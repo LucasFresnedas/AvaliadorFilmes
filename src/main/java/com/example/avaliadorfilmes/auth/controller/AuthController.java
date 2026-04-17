@@ -29,10 +29,7 @@ public class AuthController {
                 loginDTO.getSenha()
         );
 
-        String token = jwtService.gerarToken(
-                usuario.getEmail(),
-                usuario.getId()
-        );
+        String token = jwtService.gerarToken(usuario.getEmail(), usuario.getId());
 
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
