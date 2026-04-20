@@ -8,6 +8,7 @@ import com.example.avaliadorfilmes.usuario.model.Usuario;
 import com.example.avaliadorfilmes.avaliacao.service.AvaliacaoService;
 import com.example.avaliadorfilmes.filme.service.FilmeService;
 import com.example.avaliadorfilmes.usuario.service.UsuarioService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/avaliacao")
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class AvaliacaoController {
 
     // Cria uma variavel final do tipo FilmeService
@@ -30,17 +33,6 @@ public class AvaliacaoController {
 
     // Cria uma variavel final do tipo mapper
     private final AvaliacaoMapper mapper;
-
-    // Faz a injeção de dependências e atribui responsabilidades as variaveis criadas
-    public AvaliacaoController(AvaliacaoService avaliacaoService,
-                               AvaliacaoMapper mapper,
-                               FilmeService filmeService,
-                               UsuarioService usuarioService){
-        this.avaliacaoService = avaliacaoService;
-        this.mapper = mapper;
-        this.filmeService = filmeService;
-        this.usuarioService = usuarioService;
-    }
 
     // Endpoint para criar avaliações
     @PostMapping

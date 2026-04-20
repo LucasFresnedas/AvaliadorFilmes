@@ -4,6 +4,7 @@ import com.example.avaliadorfilmes.avaliacao.model.Avaliacao;
 import com.example.avaliadorfilmes.filme.model.Filme;
 import com.example.avaliadorfilmes.usuario.model.Usuario;
 import com.example.avaliadorfilmes.avaliacao.repository.AvaliacaoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +12,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class AvaliacaoService {
 
     // Define uma variável final do tipo UsuarioRepository
     private final AvaliacaoRepository repository;
-
-    // Injeção de dependência, atribuição do repository a variavel criada
-    public AvaliacaoService(AvaliacaoRepository repository){
-        this.repository = repository;
-    }
 
     // Método para listar todas avaliações
     public List<Avaliacao> listarTodasAvaliacoes(){

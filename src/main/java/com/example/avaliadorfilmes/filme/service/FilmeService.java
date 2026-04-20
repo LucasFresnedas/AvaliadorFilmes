@@ -2,19 +2,23 @@ package com.example.avaliadorfilmes.filme.service;
 
 import com.example.avaliadorfilmes.filme.model.Filme;
 import com.example.avaliadorfilmes.filme.repository.FilmeRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class FilmeService {
 
     // Define uma variável final do tipo FilmeRepository
     private final FilmeRepository repository;
 
-    // Faz a injeção de depedência atribuindo o repositório de filme a variavel criada
+    /* Faz a injeção de depedência atribuindo o repositório de filme a variavel criada
     public FilmeService(FilmeRepository repository){
         this.repository = repository;
     }
+     */
 
     // Cria método para listar todos os filmes
     public List<Filme> listarTodosFilmes(){

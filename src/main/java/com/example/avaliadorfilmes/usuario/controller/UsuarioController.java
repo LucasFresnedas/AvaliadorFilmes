@@ -4,6 +4,7 @@ import com.example.avaliadorfilmes.usuario.dto.UsuarioResponseDTO;
 import com.example.avaliadorfilmes.usuario.mapper.UsuarioMapper;
 import com.example.avaliadorfilmes.usuario.model.Usuario;
 import com.example.avaliadorfilmes.usuario.service.UsuarioService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class UsuarioController {
 
     // Cria uma variavel final do tipo usuarioService
@@ -18,12 +21,6 @@ public class UsuarioController {
 
     // Cria uma variavel final do tipo mapper
     private final UsuarioMapper mapper;
-
-    // Faz a injeção de dependências e implementa as responsabilidades nas variaveis criadas
-    public UsuarioController(UsuarioService usuarioService, UsuarioMapper mapper){
-        this.usuarioService = usuarioService;
-        this.mapper = mapper;
-    }
 
     // Endpoint para criar usuários
     @PostMapping("/registrar")

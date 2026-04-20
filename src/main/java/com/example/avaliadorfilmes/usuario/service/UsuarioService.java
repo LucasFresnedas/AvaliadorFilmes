@@ -2,11 +2,14 @@ package com.example.avaliadorfilmes.usuario.service;
 
 import com.example.avaliadorfilmes.usuario.model.Usuario;
 import com.example.avaliadorfilmes.usuario.repository.UsuarioRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.List;
 
 @Service
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class UsuarioService {
 
     // Define uma variável final do tipo UsuarioRepository
@@ -14,12 +17,6 @@ public class UsuarioService {
 
     // Cria uma variavel para receber os códigos da classe "BCryptPasswordEncoder"
     private final BCryptPasswordEncoder passwordEncoder;
-
-    // Faz a injeção de depedências atribuindo o repositório de usuario a variavel criada e a classe Decoder a variavel criada
-    public UsuarioService(UsuarioRepository repository, BCryptPasswordEncoder passwordEncoder){
-        this.repository = repository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     // Método para listar todos os usuarios
     public List<Usuario> listarTodosUsuarios(){

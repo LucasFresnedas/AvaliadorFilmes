@@ -4,12 +4,15 @@ import com.example.avaliadorfilmes.filme.dto.FilmeResponseDTO;
 import com.example.avaliadorfilmes.filme.mapper.FilmeMapper;
 import com.example.avaliadorfilmes.filme.model.Filme;
 import com.example.avaliadorfilmes.filme.service.FilmeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/filmes")
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class FilmeController {
 
     // Cria uma variavel final do tipo FilmeService
@@ -17,12 +20,6 @@ public class FilmeController {
 
     // Cria uma variavel final do tipo Mapper
     private final FilmeMapper mapper;
-
-    // Faz a injeção de dependência e atribui responsabilidades as variaveis criadas
-    public FilmeController(FilmeService filmeService, FilmeMapper mapper){
-        this.filmeService = filmeService;
-        this.mapper = mapper;
-    }
 
     // Endpoint para criar filme
     @PostMapping

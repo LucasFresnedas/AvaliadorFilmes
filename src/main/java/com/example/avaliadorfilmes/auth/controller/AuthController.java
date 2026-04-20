@@ -5,22 +5,21 @@ import com.example.avaliadorfilmes.auth.dto.LoginResponseDTO;
 import com.example.avaliadorfilmes.auth.service.JwtService;
 import com.example.avaliadorfilmes.usuario.model.Usuario;
 import com.example.avaliadorfilmes.usuario.service.UsuarioService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class AuthController {
 
+    // Cria as variaveis finais
     private final UsuarioService usuarioService;
     private final JwtService jwtService;
 
-    public AuthController(UsuarioService usuarioService,
-                          JwtService jwtService) {
-        this.usuarioService = usuarioService;
-        this.jwtService = jwtService;
-    }
-
+    // Cria o endpoint de login
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginDTO) {
 

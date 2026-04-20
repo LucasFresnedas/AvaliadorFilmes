@@ -6,6 +6,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -15,15 +16,12 @@ import java.io.IOException;
 import java.util.Collections;
 
 @Component
+// Anotação que gera um construtor automatico para os campos finais declares
+@RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
 
     // Cria uma variavel final do tipo jwtService
     private final JwtService jwtService;
-
-    // Faz a injeção de dependência na classe e atribui a responsabilidade a variavel criada
-    public JwtFilter(JwtService jwtService) {
-        this.jwtService = jwtService;
-    }
 
     // Anotação usada para sobrescrever métodos
     @Override
